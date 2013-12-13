@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117233830) do
+ActiveRecord::Schema.define(version: 20131208182719) do
 
   create_table "skus", force: true do |t|
     t.string   "sale_name"
@@ -32,5 +32,7 @@ ActiveRecord::Schema.define(version: 20131117233830) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "skus", ["product_id", "sku_id"], name: "index_skus_on_product_id_and_sku_id", unique: true
 
 end

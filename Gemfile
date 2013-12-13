@@ -33,12 +33,13 @@ group :doc do
 end
 
 gem 'kin'
-gem 'httparty'
+gem 'httpclient'
 gem 'better_errors'
 gem 'whenever'
 gem 'execjs'
 gem 'therubyracer', :platform => :ruby
-
+gem 'activerecord-import'
+gem 'debugger'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

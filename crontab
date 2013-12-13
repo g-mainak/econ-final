@@ -1,0 +1,14 @@
+# Begin Whenever generated tasks for: /home/ec2-user/Gilt/config/schedule.rb
+
+2 * * * * /bin/bash -l -c 'echo "-------------" >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'date >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'echo "Checking for Active Sales" >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'cd /home/ec2-user/Gilt && bin/rails runner -e development '\''Sku::get_active'\'' >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'date +\%H\%M >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'echo "============" >> ~/Gilt/cronlog 2>&1'
+
+5 * * * * /bin/bash -l -c 'echo "-------------" >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'date >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'echo "Checking for Active Sales" >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'cd /home/ec2-user/Gilt && bin/rails runner -e development '\''Sku::get_active'\'' >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'date +\%H\%M >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'echo "============" >> ~/Gilt/cronlog 2>&1'
+
+10 * * * * /bin/bash -l -c 'echo "-------------" >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'date >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'echo "Checking for Active Sales" >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'cd /home/ec2-user/Gilt && bin/rails runner -e development '\''Sku::get_active'\'' >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'date +\%H\%M >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'echo "============" >> ~/Gilt/cronlog 2>&1'
+
+15 * * * * /bin/bash -l -c 'echo "-------------" >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'date >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'echo "Checking for Active Sales" >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'cd /home/ec2-user/Gilt && bin/rails runner -e development '\''Sku::get_active'\'' >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'date +\%H\%M >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'echo "============" >> ~/Gilt/cronlog 2>&1'
+
+50 * * * * /bin/bash -l -c 'echo "-----------------" >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'date  >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'echo "Checking for Ended Sales" >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'cd /home/ec2-user/Gilt && bin/rails runner -e development '\''Sku::get_ended'\'' >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'date  +\%H\%M >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'echo "=================" >> ~/Gilt/cronlog 2>&1'
+
+0 1 * * * /bin/bash -l -c 'echo "--------------------" >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'echo "printing days eneded sales" >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'cd /home/ec2-user/Gilt && bin/rails runner -e development '\''Sku::print_ended'\'' >> ~/Gilt/cronlog 2>&1' && /bin/bash -l -c 'echo "====================" >> ~/Gilt/cronlog 2>&1' 
+# End Whenever generated tasks for: /home/ec2-user/Gilt/config/schedule.rb

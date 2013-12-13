@@ -23,16 +23,19 @@ set :environment, 'development'
 set :output, '~/Gilt/cronlog'
 
 every 1.hour, at: 20 do
-	command 'date'
-	command 'echo "Checking for Active Sales"'
-	runner 'Sku::get_active'
+	(command 'echo "-------------"'); (command 'date') and (command 'echo "Checking for Active Sales"') and (runner 'Sku::get_active') and	(command 'date +%H%M') and (command ' echo "============"')
 end
 every 1.hour, at: 50 do
-	command 'date'
+	command 'echo "-----------------"'
+	command 'date '
 	command 'echo "Checking for Ended Sales"'
 	runner 'Sku::get_ended'
+	command 'date  +%H%M'
+	command 'echo "================="'
 end
 every 1.day, at: '1:00 am' do
+	command 'echo "--------------------"'
 	command 'echo "printing days eneded sales"'
 	runner 'Sku::print_ended'
+	command 'echo "===================="'
 end
