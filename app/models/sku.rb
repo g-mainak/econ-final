@@ -17,7 +17,7 @@ class Sku < ActiveRecord::Base
 			end_time = Time.iso8601(sale["ends"])
 			interval = (end_time - begin_time)/(60*60)
 			skus = []
-			if ((Time.now - begin_time < 1.hour) && (sale["products"]))
+			if ((Time.now - begin_time < 5.hour) && (sale["products"]))
 				threads = []
 				sale["products"].each do |product_url|
 					threads << Thread.new do
@@ -46,7 +46,13 @@ class Sku < ActiveRecord::Base
 					end
 				end
 				threads.each(&:join)
-				Sku.import skus
+				skus.each do |sku|
+					begin
+						sku.save
+					rescue ActiveRecord::RecordNotUnique => e
+						puts "duplicate"
+					end
+				end
 			end
 		end
 		puts "Created #{created} SKUs"
