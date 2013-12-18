@@ -17,7 +17,7 @@ class Sku < ActiveRecord::Base
 			end_time = Time.iso8601(sale["ends"])
 			interval = (end_time - begin_time)/(60*60)
 			skus = []
-			if ((Time.now - begin_time < 5.hour) && (sale["products"]))
+			if ((Time.now - begin_time < 1.hour) && (sale["products"]))
 				threads = []
 				sale["products"].each do |product_url|
 					threads << Thread.new do
@@ -50,7 +50,6 @@ class Sku < ActiveRecord::Base
 					begin
 						sku.save
 					rescue ActiveRecord::RecordNotUnique => e
-						puts "duplicate"
 					end
 				end
 			end
@@ -81,7 +80,7 @@ class Sku < ActiveRecord::Base
 	end
 
 	def self.print_ended
-		file_name = "csv/#{Date.yesterday.to_s(:db)}.csv"
+		file_name = "/home/ec2-user/Dropbox/CSV/#{Date.yesterday.to_s(:db)}.csv"
 		just_ended = Sku.where(end_time: (Time.now - 1.day)..(Time.now))
 		CSV.open(file_name, "wb") do |csv|
 			csv << Sku.attribute_names.map{ |i| i.humanize}
