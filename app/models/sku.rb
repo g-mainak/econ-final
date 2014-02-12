@@ -82,9 +82,8 @@ class Sku < ActiveRecord::Base
 	end
 
 	def self.print_ended
-		# file_name = "/home/ec2-user/Dropbox/CSV/#{Date.yesterday.to_s(:db)}.csv"
-		file_name = "/home/mainak/Desktop/#{Date.yesterday.to_s(:db)}.csv"
-		just_ended = Sku.where(end_time: (Time.now - 1.day)..(Time.now+2.day))
+		file_name = "/home/ec2-user/Dropbox/CSV/#{Date.yesterday.to_s(:db)}.csv"
+		just_ended = Sku.where(end_time: (Time.now - 1.day)..(Time.now))
 		CSV.open(file_name, "wb") do |csv|
 			csv << Sku.attribute_names.map{ |i| i.humanize}
 			just_ended.each do |sku|
